@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0a1020" />
+  <meta name="description" content="An interactive Round Robin CPU scheduler with Groq generative AI and retrieval-augmented learning." />
+  <title>ExamScheduler AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#dashboard" aria-label="ExamScheduler AI home">
+        <span class="brand-mark"><span></span><span></span><span></span></span>
+        <span><strong>ExamScheduler</strong><small>AI LAB</small></span>
+      </a>
+      <div class="nav-label">WORKSPACE</div>
+      <nav class="main-nav" aria-label="Main navigation">
+        <button class="nav-item active" data-page="dashboard"><span class="nav-icon">⌂</span> Overview</button>
+        <button class="nav-item" data-page="simulator"><span class="nav-icon">◫</span> CPU Simulator</button>
+        <button class="nav-item" data-page="tutor"><span class="nav-icon">✳</span> AI Tutor <span class="nav-tag">AI</span></button>
+        <button class="nav-item" data-page="knowledge"><span class="nav-icon">▤</span> Knowledge Base</button>
+      </nav>
+      <div class="sidebar-spacer"></div>
+      <div class="sidebar-note">
+        <div class="note-icon">✦</div>
+        <strong>Learn by doing</strong>
+        <p>Simulate CPU scheduling, explore the results, and ask your AI tutor why it works.</p>
+        <button class="text-link" data-goto="tutor">Explore AI tutor <span>↗</span></button>
+      </div>
+      <div class="sidebar-footer"><span class="status-dot"></span> Local workspace <span class="version">v1.0</span></div>
+    </aside>
+
+    <main class="main-area">
+      <header class="topbar">
+        <div class="breadcrumb"><span>Workspace</span><b>/</b><strong id="crumb-current">Overview</strong></div>
+        <div class="topbar-right">
+          <div class="api-status" id="api-status"><span class="status-dot muted"></span><span>Checking AI connection</span></div>
+          <div class="avatar">ES</div>
+        </div>
+      </header>
+
+      <div class="content-wrap">
+        <section class="page active" id="page-dashboard">
+          <div class="page-heading">
+            <div><div class="eyebrow"><span class="eyebrow-line"></span> OPERATING SYSTEMS · INTELLIGENT LAB</div><h1>Good learning starts<br /><span class="gradient-text">with a better view.</span></h1><p class="subheading">Explore Round Robin scheduling, visualize every CPU cycle, and learn with a grounded AI assistant.</p></div>
+            <button class="primary-btn" data-goto="simulator"><span>▶</span> Open simulator</button>
+          </div>
+
+          <div class="hero-strip">
+            <div class="hero-copy"><div class="hero-kicker">FEATURED MODULE <span>01 / 03</span></div><h2>Round Robin, made visible.</h2><p>See how a time quantum shares CPU time fairly across examination tasks — one slice at a time.</p><button class="inline-action" data-goto="simulator">Run a simulation <span>→</span></button></div>
+            <div class="hero-visual" aria-hidden="true">
+              <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+              <div class="cpu-chip"><span class="chip-label">CPU CORE</span><strong>RR</strong><span class="chip-foot">TIME SHARING</span></div>
+              <div class="float-pill pill-one"><i class="dot dot-blue"></i> P1 · 2 ms</div><div class="float-pill pill-two"><i class="dot dot-purple"></i> P2 · 2 ms</div><div class="float-pill pill-three"><i class="dot dot-green"></i> P3 · 1 ms</div>
+            </div>
+          </div>
+
+          <div class="section-top"><div><span class="section-index">01</span><h3>Workspace snapshot</h3></div><span class="muted-copy">Your project at a glance</span></div>
+          <div class="stats-grid">
+            <article class="stat-card"><div class="stat-top"><span>KNOWLEDGE DOCUMENTS</span><span class="stat-icon purple">▤</span></div><strong id="stat-docs">—</strong><div class="stat-foot">Indexed for RAG retrieval</div></article>
+            <article class="stat-card"><div class="stat-top"><span>RETRIEVAL CHUNKS</span><span class="stat-icon blue">⌘</span></div><strong id="stat-chunks">—</strong><div class="stat-foot">Searchable context passages</div></article>
+            <article class="stat-card"><div class="stat-top"><span>SCHEDULING ALGORITHM</span><span class="stat-icon green">↻</span></div><strong class="stat-word">Round Robin</strong><div class="stat-foot">Preemptive · FIFO ready queue</div></article>
+            <article class="stat-card"><div class="stat-top"><span>GENERATION ENGINE</span><span class="stat-icon orange">✳</span></div><strong class="stat-word" id="stat-model">Groq AI</strong><div class="stat-foot" id="stat-model-foot">Connect your API key to begin</div></article>
+          </div>
+
+          <div class="bottom-grid">
+            <article class="panel quick-panel"><div class="panel-heading"><div><span class="panel-eyebrow">GET STARTED</span><h3>Choose your next step</h3></div><span class="panel-symbol">↗</span></div>
+              <button class="quick-row" data-goto="simulator"><span class="quick-icon blue-bg">◫</span><span class="quick-text"><strong>Run the CPU simulator</strong><small>Configure processes and inspect the Gantt chart</small></span><span class="quick-arrow">→</span></button>
+              <button class="quick-row" data-goto="tutor"><span class="quick-icon purple-bg">✳</span><span class="quick-text"><strong>Ask the AI tutor</strong><small>Get explanations grounded in your project notes</small></span><span class="quick-arrow">→</span></button>
+              <button class="quick-row" data-goto="knowledge"><span class="quick-icon green-bg">▤</span><span class="quick-text"><strong>Add learning material</strong><small>Upload PDFs, DOCX, TXT, Markdown, or CSV files</small></span><span class="quick-arrow">→</span></button>
+            </article>
+            <article class="panel concept-panel"><div class="panel-heading"><div><span class="panel-eyebrow">CORE CONCEPT</span><h3>How Round Robin works</h3></div><span class="concept-number">RR</span></div>
+              <div class="concept-steps"><div class="concept-step"><span>01</span><div><strong>Pick from the queue</strong><small>Take the first ready process (FIFO).</small></div></div><div class="concept-step"><span>02</span><div><strong>Run for one time slice</strong><small>Execute up to the configured quantum.</small></div></div><div class="concept-step"><span>03</span><div><strong>Re-queue if unfinished</strong><small>Completed processes leave the queue.</small></div></div></div>
+            </article>
+          </div>
+          <div class="footnote">Built for learning · Project reference: Online College Examination System</div>
+        </section>
+
+        <section class="page" id="page-simulator">
+          <div class="page-heading compact-heading"><div><div class="eyebrow"><span class="eyebrow-line"></span> SCHEDULING ENGINE</div><h1>CPU <span class="gradient-text">Simulator</span></h1><p class="subheading">Build a ready queue, choose a time quantum, and inspect the execution timeline.</p></div><button class="secondary-btn" id="reset-sim">↺ Restore example</button></div>
+          <div class="sim-layout">
+            <div class="panel process-panel">
+              <div class="panel-heading"><div><span class="panel-eyebrow">INPUT CONFIGURATION</span><h3>Process manager</h3></div><span class="count-pill" id="process-count">5 processes</span></div>
+              <form id="process-form" class="add-process-form">
+                <label>Process ID<input id="new-pid" maxlength="16" placeholder="P6" required /></label>
+                <label>Activity<input id="new-activity" maxlength="100" placeholder="Review Answers" /></label>
+                <label>Arrival<input id="new-arrival" type="number" min="0" step="0.1" value="0" required /></label>
+                <label>Burst<input id="new-burst" type="number" min="0.1" step="0.1" value="3" required /></label>
+                <button class="add-btn" type="submit" aria-label="Add process">+</button>
+              </form>
+              <div class="table-wrap process-table-wrap"><table class="data-table"><thead><tr><th>PROCESS</th><th>ARRIVAL</th><th>BURST</th><th></th></tr></thead><tbody id="process-table-body"></tbody></table></div>
+              <div class="quantum-row"><label for="quantum">TIME QUANTUM</label><div class="quantum-control"><input id="quantum" type="number" min="0.1" step="0.1" value="2" /><span>ms</span></div><span class="quantum-hint">Maximum CPU time per turn</span></div>
+              <button class="primary-btn run-btn" id="run-sim"><span>▶</span> Run Round Robin simulation</button>
+            </div>
+            <div class="panel explain-panel"><span class="panel-eyebrow">WHAT TO WATCH</span><h3>Fairness in motion.</h3><p>Each process receives CPU time for at most one quantum. If it still has work remaining, it joins the back of the queue.</p><div class="queue-preview"><div class="queue-label">READY QUEUE <span>FIFO</span></div><div class="queue-items"><span>P1</span><span>P2</span><span>P3</span><span class="queue-more">…</span></div><div class="queue-caption"><span class="queue-dot"></span> First in, first out</div></div><div class="tip-box"><span>✦</span><p><strong>Experiment tip</strong> Try a smaller quantum to observe more preemption, then use a larger value to see Round Robin approach FCFS.</p></div></div>
+          </div>
+          <div id="results-area" class="results-area hidden">
+            <div class="section-top result-head"><div><span class="section-index">02</span><h3>Simulation results</h3></div><button class="secondary-btn" id="print-report">↗ Print report</button></div>
+            <div class="result-kpis" id="result-kpis"></div>
+            <article class="panel gantt-panel"><div class="panel-heading"><div><span class="panel-eyebrow">CPU EXECUTION TIMELINE</span><h3>Gantt chart</h3></div><span class="unit-pill">TIME · MS</span></div><div id="gantt-chart" class="gantt-chart"></div><div id="gantt-scale" class="gantt-scale"></div><div class="chart-legend"><span><i class="legend-dot process-legend"></i> Process execution</span><span><i class="legend-dot idle-legend"></i> CPU idle</span></div></article>
+            <div class="result-grid"><article class="panel"><div class="panel-heading"><div><span class="panel-eyebrow">PER-PROCESS METRICS</span><h3>Performance table</h3></div></div><div class="table-wrap"><table class="data-table metrics-table"><thead><tr><th>PID</th><th>AT</th><th>BT</th><th>CT</th><th>TAT</th><th>WT</th><th>RT</th></tr></thead><tbody id="metrics-body"></tbody></table></div><div class="table-key">AT: Arrival · BT: Burst · CT: Completion · TAT: Turnaround · WT: Waiting · RT: Response</div></article>
+              <article class="panel log-panel"><div class="panel-heading"><div><span class="panel-eyebrow">EXECUTION TRACE</span><h3>Queue activity</h3></div></div><div id="execution-log" class="execution-log"></div></article></div>
+          </div>
+        </section>
+
+        <section class="page" id="page-tutor">
+          <div class="page-heading compact-heading"><div><div class="eyebrow"><span class="eyebrow-line"></span> GROQ GENERATIVE AI · RAG</div><h1>Your OS <span class="gradient-text">AI Tutor</span></h1><p class="subheading">Ask questions in natural language. Answers can reference your indexed project documents.</p></div><div class="ai-chip"><span class="pulse-dot"></span> GROQ POWERED</div></div>
+          <div class="tutor-layout">
+            <div class="panel chat-panel">
+              <div class="chat-top"><div class="tutor-avatar">✳</div><div><strong>ExamScheduler Assistant</strong><small><span class="status-dot" id="tutor-status-dot"></span> <span id="tutor-status-text">Checking connection</span></small></div><span class="secure-label">RAG ENABLED</span></div>
+              <div id="chat-messages" class="chat-messages"><div class="chat-message assistant"><div class="message-avatar">✳</div><div class="message-body"><div class="message-meta">EXAMSCHEDULER AI <span>JUST NOW</span></div><div class="message-text">Hey! I’m your Operating Systems learning assistant. Ask me about Round Robin, ready queues, time quantum, scheduling metrics, or anything in your indexed project notes.<br /><br />I’ll look for relevant passages in your knowledge base and show the sources used.</div></div></div></div>
+              <div class="suggestion-area"><span>TRY ASKING</span><div class="suggestion-chips"><button data-question="Explain Round Robin scheduling with a simple example.">Explain Round Robin</button><button data-question="How are waiting time and turnaround time calculated?">Explain the metrics</button><button data-question="Why does the ready queue use FIFO order?">Why FIFO?</button></div></div>
+              <form id="chat-form" class="chat-input-row"><textarea id="chat-input" rows="1" placeholder="Ask a question about operating systems…" required></textarea><button type="submit" class="send-btn" id="send-chat" aria-label="Send message">↑</button></form><div class="chat-disclaimer">AI can make mistakes. Verify important calculations against the simulator results.</div>
+            </div>
+            <aside class="tutor-side"><article class="panel retrieval-card"><div class="side-card-title"><span class="side-icon purple-bg">⌕</span><div><strong>Retrieval context</strong><small>Local BM25 search</small></div></div><p>Relevant text chunks are retrieved from your documents and supplied to Groq as context before an answer is generated.</p><div class="retrieval-flow"><span>Question</span><b>→</b><span>Retrieve</span><b>→</b><span>Generate</span></div><div id="last-sources" class="last-sources"><span class="empty-sources">Sources will appear here after your first question.</span></div></article>
+              <article class="panel viva-card"><div class="viva-icon">✦</div><span class="panel-eyebrow">PRESENTATION PRACTICE</span><h3>Prepare for your viva.</h3><p>Generate multiple-choice practice questions based on the project notes in your knowledge base.</p><label class="viva-label" for="quiz-topic">TOPIC</label><input id="quiz-topic" value="Round Robin CPU scheduling" /><button id="generate-quiz" class="secondary-btn full-btn">Generate practice set <span>→</span></button></article></aside>
+          </div>
+          <div id="quiz-results" class="quiz-results hidden"></div>
+        </section>
+
+        <section class="page" id="page-knowledge">
+          <div class="page-heading compact-heading"><div><div class="eyebrow"><span class="eyebrow-line"></span> RETRIEVAL AUGMENTED GENERATION</div><h1>Knowledge <span class="gradient-text">Base</span></h1><p class="subheading">Upload your notes and documents. They are split into chunks and indexed locally for AI retrieval.</p></div><div class="storage-chip"><span class="status-dot"></span> STORED LOCALLY</div></div>
+          <div class="knowledge-layout">
+            <div class="panel upload-panel"><div class="panel-heading"><div><span class="panel-eyebrow">ADD A SOURCE</span><h3>Upload learning material</h3></div><span class="upload-count" id="upload-count">0 indexed</span></div>
+              <form id="upload-form"><label class="drop-zone" for="file-input"><span class="upload-graphic">↑</span><strong>Drop a file here or <u>browse</u></strong><small>PDF, DOCX, TXT, MD or CSV · Max 10 MB</small><input id="file-input" type="file" accept=".pdf,.docx,.txt,.md,.csv" hidden /></label><div class="upload-submit-row"><span id="selected-file" class="selected-file">No file selected</span><button class="primary-btn" id="upload-btn" type="submit" disabled>Upload & index</button></div></form>
+              <div class="pipeline"><div class="pipeline-step"><span>01</span><div><strong>Extract text</strong><small>Read PDF, Word, and text files</small></div></div><div class="pipeline-arrow">→</div><div class="pipeline-step"><span>02</span><div><strong>Chunk content</strong><small>Split into overlapping passages</small></div></div><div class="pipeline-arrow">→</div><div class="pipeline-step"><span>03</span><div><strong>Index for retrieval</strong><small>Store and rank with BM25</small></div></div></div>
+            </div>
+            <div class="panel rag-info"><div class="rag-icon">⌕</div><span class="panel-eyebrow">HOW THE RAG PIPELINE WORKS</span><h3>Answers with context, not guesswork.</h3><p>RAG combines retrieval with generation. ExamScheduler searches your local document chunks first, then adds the best matches to the prompt sent to Groq.</p><div class="rag-facts"><div><strong>BM25</strong><small>Local sparse retrieval</small></div><div><strong>SQLite</strong><small>Persistent document store</small></div><div><strong>Groq</strong><small>Answer generation</small></div></div></div>
+          </div>
+          <div class="section-top knowledge-list-head"><div><span class="section-index">03</span><h3>Indexed sources</h3></div><span class="muted-copy">Manage the content available to the AI tutor</span></div>
+          <div id="documents-list" class="documents-list"></div>
+          <div class="footnote">Your source documents stay in the local project database. Only retrieved text snippets are sent to Groq when you ask a question.</div>
+        </section>
+      </div>
+    </main>
+  </div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="/static/app.js" defer></script>
+</body>
+</html>
